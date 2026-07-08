@@ -1,9 +1,11 @@
+import { Route, Routes } from "react-router"
 import Layout from "./pages/Layout"
-
 
 export function App() {
   return (
-    <Layout />
+    <Routes>
+      <Route path="/" element={<Layout />} />
+    </Routes>
   )
 }
 
