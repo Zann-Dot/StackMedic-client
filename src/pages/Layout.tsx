@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import Editor from "react-simple-code-editor/src/index"
-import Prism from "prismjs"
+import Prism, { type Grammar } from "prismjs"
 import {
     Select,
     SelectContent,
@@ -10,23 +10,25 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import type { Language, LanguageValue } from "@/type/Language.type"
 
 export default function Layout() {
     const [rawError, setRawError] = useState("")
     const [response, setResponse] = useState("")
+    const [language, setLanguage] = useState<LanguageValue>("js")
 
-    const SUPPORTED_LANGUAGES = [
-        { label: "Select a langauage", value: null },
+    const SUPPORTED_LANGUAGES: Language[] = [
         { label: "JavaScript / JSX", value: "js" },
         { label: "Python", value: "python" },
         { label: "C", value: "c" },
-        { label: "C++", value: "c++" },
+        { label: "C++", value: "cpp" },
         { label: "Rust", value: "rust" },
         { label: "Java", value: "java" },
         { label: "Go", value: "go" },
         { label: "JSON Logs", value: "json" },
         { label: "HTML", value: "html" },
     ]
+
     return (
         <>
             <Navbar />
@@ -35,9 +37,12 @@ export default function Layout() {
                     Analyze your <span className="text-primary">code</span>
                 </h1>
 
-                <Select items={SUPPORTED_LANGUAGES}>
+                <Select
+                    items={SUPPORTED_LANGUAGES}
+                    onValueChange={(value: LanguageValue) => setLanguage(value)}
+                >
                     <SelectTrigger className="w-full max-w-50 self-start">
-                        <SelectValue />
+                        <SelectValue placeholder="JavaScript / JSX" />
                     </SelectTrigger>
 
                     <SelectContent>
@@ -48,14 +53,18 @@ export default function Layout() {
                         ))}
                     </SelectContent>
                 </Select>
+
                 <div className="mx-5 my-10 grid h-120 w-full gap-4 lg:grid-cols-2">
-                    <div className="h-150 scrollbar-none overflow-auto">
+                    <div className="h-130 scrollbar-none overflow-auto">
                         <Editor
                             value={rawError}
-                            onValueChange={(code) => setRawError(code)} // Updates the string state
-                            highlight={(code) =>
-                                Prism.highlight(code, Prism.languages.js, "js")
-                            }
+                            onValueChange={(code) => setRawError(code)}
+                            highlight={(code) => {
+                                if (language) {
+                                    const grammar: Grammar = Prism.languages[language]
+                                    return Prism.highlight(code, grammar, language)
+                                }
+                            }}
                             padding={30}
                             placeholder="Paste your code"
                             className="order-1 min-h-full rounded-2xl border border-primary/50 bg-accent/30"
@@ -65,13 +74,16 @@ export default function Layout() {
                         />
                     </div>
 
-                    <div className="h-150 scrollbar-none overflow-auto">
+                    <div className="h-130 scrollbar-none overflow-auto">
                         <Editor
                             value={response}
-                            onValueChange={(code) => setResponse(code)} // Updates the string state
-                            highlight={(code) =>
-                                Prism.highlight(code, Prism.languages.js, "js")
-                            }
+                            onValueChange={(code) => setResponse(code)}
+                            highlight={(code) => {
+                                if (language) {
+                                    const grammar: Grammar = Prism.languages[language]
+                                    return Prism.highlight(code, grammar, language)
+                                }
+                            }}
                             padding={30}
                             className="order-3 min-h-full rounded-2xl bg-primary/15 p-7.5 outline-0 lg:order-2"
                             placeholder="Response..."
