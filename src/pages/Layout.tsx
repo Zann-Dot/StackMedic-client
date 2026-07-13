@@ -1,8 +1,6 @@
 import Navbar from "@/components/Navbar"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
-import Editor from "react-simple-code-editor/src/index"
-import Prism, { type Grammar } from "prismjs"
 import {
     Select,
     SelectContent,
@@ -11,10 +9,10 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import type { Language, LanguageValue } from "@/type/Language.type"
+import CodeEditorArea from "@/components/CodeEditorArea"
+import ResponseArea from "@/components/ResponseArea"
 
 export default function Layout() {
-    const [rawError, setRawError] = useState("")
-    const [response, setResponse] = useState("")
     const [language, setLanguage] = useState<LanguageValue>("js")
 
     const SUPPORTED_LANGUAGES: Language[] = [
@@ -55,43 +53,9 @@ export default function Layout() {
                 </Select>
 
                 <div className="mx-5 my-10 grid h-120 w-full gap-4 lg:grid-cols-2">
-                    <div className="h-130 scrollbar-none overflow-auto">
-                        <Editor
-                            value={rawError}
-                            onValueChange={(code) => setRawError(code)}
-                            highlight={(code) => {
-                                if (language) {
-                                    const grammar: Grammar = Prism.languages[language]
-                                    return Prism.highlight(code, grammar, language)
-                                }
-                            }}
-                            padding={30}
-                            placeholder="Paste your code"
-                            className="order-1 min-h-full rounded-2xl border border-primary/50 bg-accent/30"
-                            style={{
-                                fontFamily: '"Fira code", "Fira Mono", monospace',
-                            }}
-                        />
-                    </div>
+                    <CodeEditorArea language={language} />
 
-                    <div className="h-130 scrollbar-none overflow-auto">
-                        <Editor
-                            value={response}
-                            onValueChange={(code) => setResponse(code)}
-                            highlight={(code) => {
-                                if (language) {
-                                    const grammar: Grammar = Prism.languages[language]
-                                    return Prism.highlight(code, grammar, language)
-                                }
-                            }}
-                            padding={30}
-                            className="order-3 min-h-full rounded-2xl bg-primary/15 p-7.5 outline-0 lg:order-2"
-                            placeholder="Response..."
-                            style={{
-                                fontFamily: '"Fira code", "Fira Mono", monospace',
-                            }}
-                        />
-                    </div>
+                    <ResponseArea language={language} />
 
                     <Button className="order-2 w-1/4 bg-linear-to-l from-primary to-emerald-500/40 lg:order-3">
                         Analyze
