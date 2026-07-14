@@ -1,14 +1,16 @@
-import { useState } from "react"
+import React from "react"
 import Editor from "react-simple-code-editor/src"
 import Prism, { type Grammar } from "prismjs"
 import type { LanguageValue } from "@/type/Language.type"
-
 interface CodeEditorAreaProps {
-    language: LanguageValue
+    language: LanguageValue;
+    rawError: string;
+    setRawError: React.Dispatch<React.SetStateAction<string>>
 }
 
-export default function CodeEditorArea({ language }: CodeEditorAreaProps) {
-    const [rawError, setRawError] = useState("")
+export default function CodeEditorArea({ language, rawError, setRawError }: CodeEditorAreaProps) {
+
+
     return (
         <div className="h-130 scrollbar-none overflow-auto">
             <Editor
