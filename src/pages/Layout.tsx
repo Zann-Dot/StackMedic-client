@@ -16,6 +16,7 @@ import type { CodeFixResponse } from "@/type/CodeFixResponse"
 export default function Layout() {
     const [language, setLanguage] = useState<LanguageValue>("js")
     const [rawError, setRawError] = useState("")
+    const [loading, setLoading] = useState(false)
     const [response, setResponse] = useState("")
     const [codeFixResponse, setCodeFixResponse] =
         useState<CodeFixResponse | null>(null)
@@ -34,6 +35,7 @@ export default function Layout() {
 
     async function getAIResponse() {
         try {
+            setLoading(true)
             const response: Response = await fetch("/api/error-log-analytics", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -45,6 +47,8 @@ export default function Layout() {
             setResponse(data.codeFix)
         } catch (error) {
             console.error(error)
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -84,6 +88,7 @@ export default function Layout() {
                         language={language}
                         response={response}
                         codeFixResponse={codeFixResponse}
+                        loading={loading}
                     />
 
                     <Button
