@@ -2,6 +2,7 @@ import FeatureSection from "@/components/FeatureSection"
 import HeroSection from "@/components/HeroSection"
 import HowItWorksSection from "@/components/HowItWorksSection"
 import Navbar from "@/components/Navbar"
+import Testimonials from "@/components/Testimonials"
 
 
 export default function Layout() {
@@ -12,6 +13,7 @@ export default function Layout() {
                 <HeroSection />
                 <FeatureSection />
                 <HowItWorksSection />
+                <Testimonials />
             </main>
         </>
     )
