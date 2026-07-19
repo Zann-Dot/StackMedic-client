@@ -1,3 +1,4 @@
+import CallToActionSection from "@/components/CallToActionSection"
 import FeatureSection from "@/components/FeatureSection"
 import HeroSection from "@/components/HeroSection"
 import HowItWorksSection from "@/components/HowItWorksSection"
@@ -14,6 +15,7 @@ export default function Layout() {
                 <FeatureSection />
                 <HowItWorksSection />
                 <Testimonials />
+                <CallToActionSection />
             </main>
         </>
     )
