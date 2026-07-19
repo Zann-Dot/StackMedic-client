@@ -9,15 +9,17 @@ export default function Navbar() {
                     {" "}
                 </div>
                 <Link
-                    className="grow overflow-hidden text-2xl font-bold transition-all duration-300"
+                    className="grow overflow-hidden text-2xl font-bold transition-all inline-flex duration-300 items-center gap-x-4"
                     to="/"
                 >
-                    <span className="bg-linear-to-l from-primary to-emerald-300 bg-clip-text text-transparent">
+                    <img src="stackmedilogoVibrant.png" alt="brandlogo" className="h-15 hidden dark:block" />
+                    <img src="stackmedilogo.png" alt="brandlogo" className="block dark:hidden h-10 my-2.5 ms-1.25" />
+                    <span className="font-interphases text-3xl Pro bg-linear-to-r from-teal-900 to-emerald-400 bg-clip-text text-transparent dark:text-white/90">
                         StackMedic
                     </span>
                 </Link>
                 <div className="flex gap-2">
-                    <Button className="flex items-center rounded-full bg-background text-sm text-foreground hover:bg-background hover:text-muted-foreground">
+                    <Button className="flex items-center rounded-lg bg-transparent text-sm text-foreground hover:bg-primary-foreground dark:hover:bg-background">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
@@ -40,6 +42,7 @@ export default function Navbar() {
                         </svg>
                         Login
                     </Button>
+                    <Button className="rounded-lg bg-teal-600 hover:bg-teal-600/80 font-semibold">Get Started</Button>
                 </div>
             </nav>
         </header>
