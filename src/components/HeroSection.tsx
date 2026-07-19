@@ -22,7 +22,7 @@ export default function HeroSection() {
             </sub>
 
             <div className="hero-section-ctr flex gap-x-4">
-                <Button className="rounded-lg bg-black hover:bg-linear-to-l from-primary to-emerald-500/40">
+                <Button className="rounded-lg bg-black hover:bg-linear-to-l dark:bg-linear-to-l from-primary to-emerald-500/40">
                     Get started
                     <ArrowRight className="ms-1" />
                 </Button>
