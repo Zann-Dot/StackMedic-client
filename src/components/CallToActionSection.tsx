@@ -4,11 +4,11 @@ import { ArrowRight } from "lucide-react";
 export default function CallToActionSection() {
     return (
         <div className="flex w-full flex-col items-center justify-center gap-y-5 bg-linear-to-l from-emerald-500 to-teal-500/80 px-5 py-20 md:px-0 dark:bg-secondary/10">
-            <h2 className="mb-4 font-interphases text-3xl font-bold tracking-tight text-white md:text-4xl">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
                 Ready to simplify full-stack debugging?
             </h2>
 
-            <p className="mx-auto mb-8 max-w-xl font-interphases text-base leading-relaxed text-emerald-100 md:text-lg">
+            <p className="mx-auto mb-8 max-w-xl text-center text-base leading-relaxed text-emerald-100 md:text-lg">
                 Join thousands of developers who have made troubleshooting cryptic
                 runtime errors stress-free.
             </p>

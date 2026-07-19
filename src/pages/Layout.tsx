@@ -1,5 +1,6 @@
 import CallToActionSection from "@/components/CallToActionSection"
 import FeatureSection from "@/components/FeatureSection"
+import Footer from "@/components/Footer"
 import HeroSection from "@/components/HeroSection"
 import HowItWorksSection from "@/components/HowItWorksSection"
 import Navbar from "@/components/Navbar"
@@ -17,6 +18,7 @@ export default function Layout() {
                 <Testimonials />
                 <CallToActionSection />
             </main>
+            <Footer />
         </>
     )
 }
