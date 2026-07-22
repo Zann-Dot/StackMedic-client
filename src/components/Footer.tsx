@@ -24,7 +24,7 @@ export default function Footer() {
                         <li className="before:bg-surface-3 relative inline-block pe-4 text-xs before:absolute before:inset-e-1.5 before:top-1/2 before:size-1 before:-translate-y-1/2 before:rounded-full last:pe-0 last-of-type:before:hidden">
                             <a
                                 className="text-muted-foreground-1 inline-flex items-center gap-x-1 text-sm underline hover:text-teal-400"
-                                href="https://github.com/Zann-Dot/"
+                                href="https://www.linkedin.com/in/anaykarn/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

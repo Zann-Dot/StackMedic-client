@@ -11,7 +11,7 @@ export default function Layout() {
     return (
         <>
             <Navbar />
-            <main className="mt-10 flex basis-full flex-col items-center gap-y-10 w-full">
+            <main className="md:mt-10 flex basis-full flex-col items-center gap-y-10 w-full">
                 <HeroSection />
                 <FeatureSection />
                 <HowItWorksSection />

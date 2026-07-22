@@ -1,49 +1,86 @@
 import { Button } from "@/components/ui/button"
 import { Link } from "react-router"
-
+import { motion } from "motion/react"
+const MotionButton = motion.create(Button)
 export default function Navbar() {
     return (
-        <header className="border-navbar-line flex w-full flex-wrap border-b bg-primary-foreground/4 py-3 sm:flex-nowrap sm:justify-start">
-            <nav className="mx-auto flex w-full max-w-340 basis-full flex-wrap items-center justify-between px-4">
-                <div className="text-xl font-semibold text-foreground focus:opacity-80 focus:outline-hidden">
-                    {" "}
-                </div>
-                <Link
-                    className="grow overflow-hidden text-2xl font-bold transition-all inline-flex duration-300 items-center gap-x-4"
-                    to="/"
-                >
-                    <img src="stackmedilogoVibrant.png" alt="brandlogo" className="h-15 hidden dark:block" />
-                    <img src="stackmedilogo.png" alt="brandlogo" className="block dark:hidden h-10 my-2.5 ms-1.25" />
-                    <span className="font-interphases text-3xl Pro bg-linear-to-r from-teal-900 to-emerald-400 bg-clip-text text-transparent dark:text-white/90">
-                        StackMedic
-                    </span>
-                </Link>
-                <div className="flex gap-2">
-                    <Button className="flex items-center rounded-lg bg-transparent text-sm text-foreground hover:bg-primary-foreground dark:hover:bg-background">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 16 16"
-                            id="User-1-Line--Streamline-Mingcute"
-                            height="16"
-                            width="16"
+        <header className="border-navbar-line flex flex-wrap sm:flex-nowrap sm:justify-start">
+            <nav className=" border-b bg-primary-foreground/4  px-4 py-3  w-full hidden sm:flex basis-full flex-wrap items-center justify-between">
+                <div className="max-w-340 w-full mx-auto hidden sm:flex basis-full flex-wrap items-center justify-between">
+                    <div className="text-xl font-semibold text-foreground focus:opacity-80 focus:outline-hidden">
+                        {" "}
+                    </div>
+                    <Link
+                        className="inline-flex grow items-center gap-x-4 overflow-hidden text-2xl font-bold transition-all duration-300"
+                        to="/"
+                    >
+                        <img
+                            src="stackmedilogoVibrant.png"
+                            alt="brandlogo"
+                            className="hidden h-15 dark:block"
+                        />
+                        <img
+                            src="stackmedilogo.png"
+                            alt="brandlogo"
+                            className="my-2.5 ms-1.25 block h-10 dark:hidden"
+                        />
+                        <span className="Pro bg-linear-to-r from-teal-900 to-emerald-400 bg-clip-text font-interphases text-3xl text-transparent dark:text-white/90">
+                            StackMedic
+                        </span>
+                    </Link>
+                    <div className="flex gap-2">
+                        <MotionButton
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.1, ease: "easeInOut" }}
+                            className="flex items-center rounded-lg bg-transparent text-sm text-foreground hover:bg-primary-foreground dark:hover:bg-background"
                         >
-                            <desc>User 1 Line Streamline Icon: https://streamlinehq.com</desc>
-                            <g fill="none" fillRule="evenodd">
-                                <path
-                                    d="M16 0v16H0V0h16ZM8.395333333333333 15.505333333333333l-0.007333333333333332 0.0013333333333333333 -0.047333333333333324 0.023333333333333334 -0.013333333333333332 0.0026666666666666666 -0.009333333333333332 -0.0026666666666666666 -0.047333333333333324 -0.023333333333333334c-0.006666666666666666 -0.0026666666666666666 -0.012666666666666666 -0.0006666666666666666 -0.016 0.003333333333333333l-0.0026666666666666666 0.006666666666666666 -0.011333333333333334 0.2853333333333333 0.003333333333333333 0.013333333333333332 0.006666666666666666 0.008666666666666666 0.06933333333333333 0.049333333333333326 0.009999999999999998 0.0026666666666666666 0.008 -0.0026666666666666666 0.06933333333333333 -0.049333333333333326 0.008 -0.010666666666666666 0.0026666666666666666 -0.011333333333333334 -0.011333333333333334 -0.2846666666666666c-0.0013333333333333333 -0.006666666666666666 -0.005999999999999999 -0.011333333333333334 -0.011333333333333334 -0.011999999999999999Zm0.17666666666666667 -0.07533333333333334 -0.008666666666666666 0.0013333333333333333 -0.12333333333333332 0.062 -0.006666666666666666 0.006666666666666666 -0.002 0.007333333333333332 0.011999999999999999 0.2866666666666666 0.003333333333333333 0.008 0.005333333333333333 0.004666666666666666 0.134 0.062c0.008 0.0026666666666666666 0.015333333333333332 0 0.019333333333333334 -0.005333333333333333l0.0026666666666666666 -0.009333333333333332 -0.02266666666666667 -0.4093333333333333c-0.002 -0.008 -0.006666666666666666 -0.013333333333333332 -0.013333333333333332 -0.014666666666666665Zm-0.4766666666666666 0.0013333333333333333a0.015333333333333332 0.015333333333333332 0 0 0 -0.018 0.004l-0.004 0.009333333333333332 -0.02266666666666667 0.4093333333333333c0 0.008 0.004666666666666666 0.013333333333333332 0.011333333333333334 0.016l0.009999999999999998 -0.0013333333333333333 0.134 -0.062 0.006666666666666666 -0.005333333333333333 0.0026666666666666666 -0.007333333333333332 0.011333333333333334 -0.2866666666666666 -0.002 -0.008 -0.006666666666666666 -0.006666666666666666 -0.12266666666666666 -0.06133333333333333Z"
-                                    strokeWidth="0.6667"
-                                ></path>
-                                <path
-                                    fill="currentColor"
-                                    d="M10.666666666666666 9.333333333333332a3.333333333333333 3.333333333333333 0 0 1 3.33 3.1886666666666668L14 12.666666666666666v1.3333333333333333a0.6666666666666666 0.6666666666666666 0 0 1 -1.3286666666666667 0.078L12.666666666666666 14v-1.3333333333333333a2 2 0 0 0 -1.8826666666666665 -1.9966666666666666L10.666666666666666 10.666666666666666H5.333333333333333a2 2 0 0 0 -1.9966666666666666 1.8826666666666665L3.333333333333333 12.666666666666666v1.3333333333333333a0.6666666666666666 0.6666666666666666 0 0 1 -1.3286666666666667 0.078L2 14v-1.3333333333333333a3.333333333333333 3.333333333333333 0 0 1 3.1886666666666668 -3.33L5.333333333333333 9.333333333333332h5.333333333333333ZM8 1.3333333333333333a3.333333333333333 3.333333333333333 0 1 1 0 6.666666666666666 3.333333333333333 3.333333333333333 0 0 1 0 -6.666666666666666Zm0 1.3333333333333333a2 2 0 1 0 0 4 2 2 0 0 0 0 -4Z"
-                                    strokeWidth="0.6667"
-                                ></path>
-                            </g>
-                        </svg>
-                        Login
-                    </Button>
-                    <Button className="rounded-lg bg-teal-600 hover:bg-teal-600/80 font-semibold">Get Started</Button>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 16 16"
+                                id="User-1-Line--Streamline-Mingcute"
+                                height="16"
+                                width="16"
+                            >
+                                <desc>User 1 Line Streamline Icon: https://streamlinehq.com</desc>
+                                <g fill="none" fillRule="evenodd">
+                                    <path
+                                        d="M16 0v16H0V0h16ZM8.395333333333333 15.505333333333333l-0.007333333333333332 0.0013333333333333333 -0.047333333333333324 0.023333333333333334 -0.013333333333333332 0.0026666666666666666 -0.009333333333333332 -0.0026666666666666666 -0.047333333333333324 -0.023333333333333334c-0.006666666666666666 -0.0026666666666666666 -0.012666666666666666 -0.0006666666666666666 -0.016 0.003333333333333333l-0.0026666666666666666 0.006666666666666666 -0.011333333333333334 0.2853333333333333 0.003333333333333333 0.013333333333333332 0.006666666666666666 0.008666666666666666 0.06933333333333333 0.049333333333333326 0.009999999999999998 0.0026666666666666666 0.008 -0.0026666666666666666 0.06933333333333333 -0.049333333333333326 0.008 -0.010666666666666666 0.0026666666666666666 -0.011333333333333334 -0.011333333333333334 -0.2846666666666666c-0.0013333333333333333 -0.006666666666666666 -0.005999999999999999 -0.011333333333333334 -0.011333333333333334 -0.011999999999999999Zm0.17666666666666667 -0.07533333333333334 -0.008666666666666666 0.0013333333333333333 -0.12333333333333332 0.062 -0.006666666666666666 0.006666666666666666 -0.002 0.007333333333333332 0.011999999999999999 0.2866666666666666 0.003333333333333333 0.008 0.005333333333333333 0.004666666666666666 0.134 0.062c0.008 0.0026666666666666666 0.015333333333333332 0 0.019333333333333334 -0.005333333333333333l0.0026666666666666666 -0.009333333333333332 -0.02266666666666667 -0.4093333333333333c-0.002 -0.008 -0.006666666666666666 -0.013333333333333332 -0.013333333333333332 -0.014666666666666665Zm-0.4766666666666666 0.0013333333333333333a0.015333333333333332 0.015333333333333332 0 0 0 -0.018 0.004l-0.004 0.009333333333333332 -0.02266666666666667 0.4093333333333333c0 0.008 0.004666666666666666 0.013333333333333332 0.011333333333333334 0.016l0.009999999999999998 -0.0013333333333333333 0.134 -0.062 0.006666666666666666 -0.005333333333333333 0.0026666666666666666 -0.007333333333333332 0.011333333333333334 -0.2866666666666666 -0.002 -0.008 -0.006666666666666666 -0.006666666666666666 -0.12266666666666666 -0.06133333333333333Z"
+                                        strokeWidth="0.6667"
+                                    ></path>
+                                    <path
+                                        fill="currentColor"
+                                        d="M10.666666666666666 9.333333333333332a3.333333333333333 3.333333333333333 0 0 1 3.33 3.1886666666666668L14 12.666666666666666v1.3333333333333333a0.6666666666666666 0.6666666666666666 0 0 1 -1.3286666666666667 0.078L12.666666666666666 14v-1.3333333333333333a2 2 0 0 0 -1.8826666666666665 -1.9966666666666666L10.666666666666666 10.666666666666666H5.333333333333333a2 2 0 0 0 -1.9966666666666666 1.8826666666666665L3.333333333333333 12.666666666666666v1.3333333333333333a0.6666666666666666 0.6666666666666666 0 0 1 -1.3286666666666667 0.078L2 14v-1.3333333333333333a3.333333333333333 3.333333333333333 0 0 1 3.1886666666666668 -3.33L5.333333333333333 9.333333333333332h5.333333333333333ZM8 1.3333333333333333a3.333333333333333 3.333333333333333 0 1 1 0 6.666666666666666 3.333333333333333 3.333333333333333 0 0 1 0 -6.666666666666666Zm0 1.3333333333333333a2 2 0 1 0 0 4 2 2 0 0 0 0 -4Z"
+                                        strokeWidth="0.6667"
+                                    ></path>
+                                </g>
+                            </svg>
+                            Login
+                        </MotionButton>
+                        <MotionButton
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.1, ease: "easeInOut" }}
+                            className="rounded-lg bg-teal-600 font-semibold hover:bg-teal-600/80"
+                        >
+                            Get Started
+                        </MotionButton>
+                    </div>
                 </div>
+            </nav>
+
+            <nav className="mx-auto flex items-center justify-center gap-x-4 px-4 py-3 font-bold sm:hidden">
+                <img
+                    src="stackmedilogoVibrant.png"
+                    alt="brandlogo"
+                    className="hidden h-20 dark:block"
+                />
+                <img
+                    src="stackmedilogo.png"
+                    alt="brandlogo"
+                    className="my-2.5 ms-1.25 block h-15 dark:hidden"
+                />
+                <span className="Pro bg-linear-to-r from-teal-900 to-emerald-400 bg-clip-text font-interphases text-4xl text-transparent dark:text-white/90">
+                    StackMedic
+                </span>
             </nav>
         </header>
     )

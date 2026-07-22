@@ -2,7 +2,7 @@ import { Badge } from "./ui/badge"
 
 export default function HowItWorksSection() {
     return (
-        <section className="flex w-full flex-col items-center justify-center gap-y-5 px-5 pt-10 md:px-0">
+        <section id="how-it-works" className="flex w-full flex-col items-center justify-center gap-y-5 px-5 pt-10 md:px-0">
             <Badge className="mt-10 border border-gray-200 bg-teal-50 pt-1 text-teal-700 dark:border-0 dark:bg-teal-950 dark:text-teal-300">
                 How It Works
             </Badge>
