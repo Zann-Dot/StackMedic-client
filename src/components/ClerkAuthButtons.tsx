@@ -26,7 +26,7 @@ export function ClerkAuthButtons() {
                 </>
             ) : (
                 <div className="flex items-center gap-5">
-                    <NavLink to="/analysis" className="rounded-lg py-2 px-5 text-sm text-white bg-linear-to-l from-primary to-emerald-500/40">
+                    <NavLink to="/analysis" className="rounded-lg transition-all duration-300 hover:bg-linear-to-l text-white dark:border-0 dark:hover:opacity-90 py-1.5 px-5 text-sm bg-neutral border dark:bg-linear-to-l from-primary to-emerald-500/40">
                         Analyze
                     </NavLink>
                     <UserButton />

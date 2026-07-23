@@ -3,9 +3,9 @@ import { Info } from "lucide-react"
 export default function Footer() {
 
     return (
-        <footer className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8">
-            <div className="border-footer-line border-t py-6">
-                <div className="flex flex-wrap items-center justify-between gap-2">
+        <footer className="flex flex-wrap sm:flex-nowrap justify-start md:justify-between">
+            <div className="border-border border-t py-6 w-full px-4 sm:px-6 lg:px-8 ">
+                <div className="max-w-340 w-full mx-auto flex flex-wrap items-center justify-between gap-2">
                     <div>
                         <p className="text-sm text-muted-foreground">
                             © 2026 — built by Anay Karn. All rights reserved.

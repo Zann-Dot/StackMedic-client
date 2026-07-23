@@ -3,8 +3,8 @@ import { ClerkAuthButtons } from "@/components/ClerkAuthButtons"
 
 export default function Navbar() {
     return (
-        <header className="border-navbar-line flex flex-wrap sm:flex-nowrap sm:justify-start">
-            <nav className="border-b bg-primary-foreground/4 px-4 py-3 w-full hidden sm:flex basis-full flex-wrap items-center justify-between">
+        <header className="sticky top-0 z-60 flex flex-wrap sm:flex-nowrap sm:justify-start">
+            <nav className="border-b bg-background px-4 py-3 w-full hidden sm:flex basis-full flex-wrap items-center justify-between">
                 <div className="max-w-340 w-full mx-auto hidden sm:flex basis-full flex-wrap items-center justify-between">
                     <div className="text-xl font-semibold text-foreground focus:opacity-80 focus:outline-hidden">
                         {" "}
