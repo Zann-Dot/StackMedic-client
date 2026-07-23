@@ -3,9 +3,13 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { DotLottieReact } from "@lottiefiles/dotlottie-react"
 import { motion } from "motion/react"
+import { useAuth } from "@clerk/react-router"
+import { useNavigate } from "react-router"
 
 const MotionButton = motion.create(Button)
 export default function HeroSection() {
+    const { isSignedIn } = useAuth();
+    const navigate = useNavigate();
     return (
         <section className="mt-5 flex w-full flex-col items-center justify-center gap-y-5 px-5 md:mt-10 md:gap-y-10 md:pt-10">
             <Badge className="border border-gray-200 bg-teal-50 pt-1 text-teal-700 dark:border-0 dark:bg-teal-950 dark:text-teal-300">
@@ -27,6 +31,7 @@ export default function HeroSection() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.1, ease: "easeInOut" }}
                     className="rounded-lg bg-black from-primary to-emerald-500/40 hover:bg-linear-to-l dark:bg-linear-to-l"
+                    onClick={() => isSignedIn ? navigate("/analysis") : navigate("/sign-up")}
                 >
                     Get started
                     <ArrowRight className="ms-1" />

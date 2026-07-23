@@ -1,9 +1,10 @@
 import { useAuth } from "@clerk/react-router"
 import { Button } from "@/components/ui/button"
 import { SignInButton, SignUpButton, UserButton } from "@clerk/react-router"
+import { NavLink } from "react-router";
 
 export function ClerkAuthButtons() {
-    const { isSignedIn } = useAuth()
+    const { isSignedIn } = useAuth();
 
     return (
         <div className="flex items-center gap-2">
@@ -24,7 +25,12 @@ export function ClerkAuthButtons() {
                     </SignUpButton>
                 </>
             ) : (
-                <UserButton />
+                <div className="flex items-center gap-5">
+                    <NavLink to="/analysis" className="rounded-lg py-2 px-5 text-sm text-white bg-linear-to-l from-primary to-emerald-500/40">
+                        Analyze
+                    </NavLink>
+                    <UserButton />
+                </div>
             )}
         </div>
     )

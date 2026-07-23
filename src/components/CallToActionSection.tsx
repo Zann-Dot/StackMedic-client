@@ -1,7 +1,11 @@
-import { Button } from "@base-ui/react/button";
-import { ArrowRight } from "lucide-react";
+import { Button } from "@base-ui/react/button"
+import { useAuth } from "@clerk/react-router"
+import { ArrowRight } from "lucide-react"
+import { useNavigate } from "react-router"
 
 export default function CallToActionSection() {
+    const { isSignedIn } = useAuth()
+    const navigate = useNavigate()
     return (
         <div className="flex w-full flex-col items-center justify-center gap-y-5 bg-linear-to-l from-emerald-500 to-teal-500/80 px-5 py-20 md:px-0 dark:bg-secondary/10">
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
@@ -14,7 +18,12 @@ export default function CallToActionSection() {
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Button className="group inline-flex w-full items-center justify-center rounded-xl bg-white px-6 py-3 font-interphases text-sm font-semibold text-emerald-700 shadow-sm transition-colors hover:bg-emerald-50 sm:w-auto md:text-base">
+                <Button
+                    onClick={() =>
+                        isSignedIn ? navigate("/analysis") : navigate("/sign-up")
+                    }
+                    className="group inline-flex w-full items-center justify-center rounded-xl bg-white px-6 py-3 font-interphases text-sm font-semibold text-emerald-700 shadow-sm transition-colors hover:bg-emerald-50 sm:w-auto md:text-base"
+                >
                     Get started
                     <ArrowRight className="ms-1" />
                 </Button>

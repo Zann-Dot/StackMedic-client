@@ -1,6 +1,7 @@
 import { Info } from "lucide-react"
 
 export default function Footer() {
+
     return (
         <footer className="mx-auto w-full max-w-340 px-4 sm:px-6 lg:px-8">
             <div className="border-footer-line border-t py-6">
