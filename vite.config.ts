@@ -6,26 +6,33 @@ import prismjs from "vite-plugin-prismjs"
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),
-  tailwindcss(),
-  prismjs({
-    languages: 'all',
-    theme: 'solarizedlight',
-    css: true,
-  }),
+  plugins: [
+    react(),
+    tailwindcss(),
+    prismjs({
+      languages: "all",
+      theme: "solarizedlight",
+      css: true,
+    }),
   ],
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
   server: {
     proxy: {
       "/api": {
         target: "http://localhost:3000",
         changeOrigin: true,
         secure: false,
-      }
-    }
-  }
+      },
+    },
+  },
+
+  ssr: {
+    noExternal: ["@clerk/react-router"],
+  },
 })
